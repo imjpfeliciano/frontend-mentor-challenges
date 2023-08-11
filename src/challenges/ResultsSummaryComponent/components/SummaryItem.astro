@@ -1,0 +1,37 @@
+---
+interface Props {
+  type: "reaction" | "memory" | "verbal" | "visual";
+  score: number;
+}
+
+const { type, score } = Astro.props;
+
+enum BgColorType {
+  reaction = "bg-red-50",
+  memory = "bg-yellow-50",
+  verbal = "bg-green-50",
+  visual = "bg-blue-50",
+}
+
+enum TextColorType {
+  reaction = "text-red-500",
+  memory = "text-yellow-500",
+  verbal = "text-green-500",
+  visual = "text-blue-500",
+}
+---
+
+<div
+  class={`w-full rounded-lg flex flex-row justify-between p-4 ${BgColorType[type]}`}
+>
+  <div class="flex flex-row gap-2">
+    <img src={`/assets/images/icon-${type}.svg`} alt={`image-${type}`} />
+    <span class={`capitalize font-semibold ${TextColorType[type]}`}>{type}</span
+    >
+  </div>
+
+  <div>
+    <span class="font-semibold">{score}</span>
+    <span class="text-gray-500">/ 100</span>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+---
+import SummaryItem from "../challenges/ResultsSummaryComponent/components/SummaryItem.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Results Summary Component">
+  <div
+    class="flex flex-col md:flex-row rounded-xl shadow-lg max-w-screen-md m-auto gap-2"
+  >
+    <div
+      class="bg-gradient-to-b from-purple-500 to-blue-700 rounded-xl md:w-1/2"
+    >
+      <div class="p-4 flex items-center flex-col gap-4 text-center text-white">
+        <span class="text-xl font-semibold">Your Result</span>
+        <div
+          class="rounded-full bg-blue-700 opacity-80 w-32 h-32 flex flex-col items-center justify-center"
+        >
+          <span class="text-4xl font-semibold">76</span>
+          <span>of 100</span>
+        </div>
+
+        <span class="text-2xl">Great</span>
+
+        <p class="text-gray-200">
+          You scored higher than 65% of the people who have taken these tests.
+        </p>
+      </div>
+    </div>
+
+    <div class="md:w-1/2">
+      <div class="p-4 flex items-center flex-col gap-4">
+        <span class="text-xl font-semibold">Summary</span>
+
+        <div class="w-full flex flex-col gap-4">
+          <SummaryItem type="reaction" score={80} />
+          <SummaryItem type="memory" score={92} />
+          <SummaryItem type="verbal" score={61} />
+          <SummaryItem type="visual" score={72} />
+        </div>
+        <button class="w-full bg-slate-800 rounded-full text-white py-2">
+          Continue
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a
+      href="https://www.frontendmentor.io?ref=challenge"
+      target="_blank">Frontend Mentor</a
+    >. Coded by <a href="#">imjpfeliciano</a>.
+  </div>
+</MainLayout>
